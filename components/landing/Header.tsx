@@ -43,11 +43,12 @@ const Header = observer(() => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const bgColor = window.getComputedStyle(
-              entry.target,
-            ).backgroundColor;
-            console.log(bgColor, "bgColor");
-            if (bgColor === "rgb(3, 2, 10)") {
+            console.log(
+              entry.target.classList,
+              "entry",
+              entry.target.classList.contains("dark"),
+            );
+            if (entry.target.classList.contains("dark")) {
               setTextColor("text-white");
             } else {
               setTextColor("text-black");
@@ -55,7 +56,7 @@ const Header = observer(() => {
           }
         });
       },
-      { threshold: 0.5 },
+      { threshold: 0.1 },
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -94,31 +95,29 @@ const Header = observer(() => {
             : "bg-transparent"
         } ${textColor}`}
       >
-        <div className="lg:items-center w-full lg:justify-between hidden py-[20px] px-[30px] lg:flex gap-2">
+        <div className="items-center w-full justify-between py-[20px] px-[30px] flex gap-2">
           <Link href="/" className="shrink w-full font-bold text-xl grow-0">
             Dialix
           </Link>
-          <div className="relative w-full">
-            <div className="m-0 flex items-center rounded-[6px] lg:gap-16 xl:gap-8">
-              {navItems.map((nav, idx) => {
-                return (
-                  <div key={idx} className="flex items-center">
-                    <Link
-                      href={nav.to}
-                      className="flex items-center gap-1 group hover:underline"
-                      title={nav.title}
-                      scroll={true}
-                    >
-                      <span>{nav.title}</span>
-                    </Link>
-                  </div>
-                );
-              })}
-            </div>
+          <div className="m-0 hidden sm:flex items-center rounded-[6px] lg:gap-16 sm:gap-8">
+            {navItems.map((nav, idx) => {
+              return (
+                <div key={idx} className="flex items-center">
+                  <Link
+                    href={nav.to}
+                    className="flex items-center gap-1 group hover:underline"
+                    title={nav.title}
+                    scroll={true}
+                  >
+                    <span>{nav.title}</span>
+                  </Link>
+                </div>
+              );
+            })}
           </div>
           <div className="w-full flex gap-2 justify-end">
             <Button variant={"white"}>Sign In</Button>
-            <Button variant={"primary"}>Sign Up</Button>
+            {/*<Button variant={"primary"}>Sign Up</Button>*/}
           </div>
         </div>
       </div>

@@ -24,7 +24,7 @@ const Companies = observer(() => {
   ];
 
   return (
-    <div className="observe-section w-full hidden md:flex flex-col max-w-screen-lg mx-auto py-20">
+    <div className="observe-section w-10/12 hidden md:flex flex-col max-w-screen-lg mx-auto py-20">
       <p className={`w-full text-center text-xl`}>
         Trusted by following Companies
       </p>

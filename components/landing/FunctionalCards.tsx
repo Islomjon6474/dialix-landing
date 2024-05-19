@@ -44,7 +44,7 @@ export const functionalCards = [
 
 const FunctionalCards = observer(() => {
   return (
-    <div className="observe-section py-30 relative min-w-screen min-h-screen bg-[#03020A] rounded-2xl flex flex-col items-center justify-center">
+    <div className="observe-section dark py-30 relative min-w-screen min-h-screen bg-[#03020A] rounded-2xl flex flex-col items-center justify-center">
       <Image
         className="absolute top-0 z-10"
         src="./images/half-moon.svg"

@@ -40,23 +40,18 @@ body {
   background-repeat: no-repeat;
 }
 
+.footer {
+  background-image: url("../public/images/footer-half-moon.svg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
 @keyframes rot1 {
   to {
     transform: rotate(360deg);
   }
 }
-
-/*.card {*/
-/*  background-color: #2E2D31;*/
-/*  padding: 1px;*/
-/*  opacity: 0.5;*/
-/*}*/
-
-/*.card:hover {*/
-/*  background: linear-gradient(to top right, #8636F8 2%, #F020B3 35%, #F8475E 67%, #FF9421 100%);*/
-/*  transition: all 0.7s ease;*/
-/*  opacity: 1;*/
-/*}*/
 
 .card {
   position: relative;
