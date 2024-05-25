@@ -97,7 +97,7 @@ const Header = observer(() => {
       >
         <div className="items-center w-full justify-between py-[20px] px-[30px] flex gap-2">
           <Link href="/" className="shrink w-full font-bold text-xl grow-0">
-            Dialix
+            Dialix AI
           </Link>
           <div className="m-0 hidden sm:flex items-center rounded-[6px] lg:gap-16 sm:gap-8">
             {navItems.map((nav, idx) => {

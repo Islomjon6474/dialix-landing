@@ -18,7 +18,7 @@ const Components = observer(() => {
         </div>
         <div className="flex justify-center items-center w-full text-center leading-[22px] sm:text-start">
           <p className="!leading-7 text-center text-base md:!leading-6 text-black/50 w-full">
-            Unlike other no-code and low-code builders, Plasmic integrates with
+            Unlike other no-code and low-code builders, Dialix integrates with
             your existing <br /> codebase, so you're never confined to a walled
             garden.
           </p>

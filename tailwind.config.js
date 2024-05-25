@@ -29,8 +29,7 @@ module.exports = {
 
     extend: {
       backgroundImage: {
-        "gradient-four-colors":
-          "linear-gradient(to top right, #8636F8 2%, #F020B3 35%, #F8475E 67%, #FF9421 100%)",
+        'gradient-four-colors': 'linear-gradient(to top right, #8636F8 2%, #F020B3 35%, #F8475E 67%, #FF9421 100%)',
       },
       transitionProperty: {
         bg: "background-color, background-image",
@@ -50,7 +49,7 @@ module.exports = {
         features_bg_grad_via: "rgba(22, 27, 34, 0.53)",
         features_bg_grad_to: "rgba(22, 27, 34, 0.46)",
         features_icons_color:
-          "linear-gradient(180deg, #8324ff98 0%, #5D2ABF 100%)",
+            "linear-gradient(180deg, #8324ff98 0%, #5D2ABF 100%)",
         pink_gradient: "linear-gradient(45deg, #3F9CFB -10%, #B856F3 139%)",
       },
       fontFamily: {
