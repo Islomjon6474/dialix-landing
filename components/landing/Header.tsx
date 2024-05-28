@@ -71,7 +71,7 @@ const Header = observer(() => {
                   <div key={idx} className="flex items-center">
                     <Link
                         href={nav.to}
-                        className="flex items-center gap-1 group hover:underline"
+                        className="flex items-center  gap-1 group hover:underline"
                         title={nav.title}
                         scroll={true}
                     >

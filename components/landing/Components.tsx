@@ -7,7 +7,7 @@ import Button from "@/components/Button";
 const Components = observer(() => {
   return (
       <div
-          id={`components`}
+          id={`components`} // This is the id of the section
           className="observe-section overflow-hidden w-screen min-h-screen rounded-2xl flex flex-col items-center justify-center"
       >
         <div className="p-8 md:p-16 flex flex-col items-center   sm:items-start justify-center w-full leading-6 gap-10">

@@ -23,7 +23,7 @@ export default function Intro() {
             </div>
             <div className="flex justify-center items-center w-full text-center leading-[22px] sm:text-start">
               <p className="!leading-7 text-center text-base md:!leading-6 text-primary w-full">
-                Gain insights, improve agent performance, and boost customer
+                Gain insights, improve agent performance, and boost customers
                 satisfaction with conversation intelligence.
               </p>
             </div>

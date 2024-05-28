@@ -92,7 +92,7 @@ const FunctionalCards = observer(() => {
                         width={300}
                         height={300}
                     />
-                    <h3 className="text-xl mt-4 mb-2">{card.title}</h3>
+                    <h3 className="text-xl mt-4 mb-3">{card.title}</h3>
                     <p className="text-white/70 mb-4">{card.description}</p>
                   </div>
                 </div>

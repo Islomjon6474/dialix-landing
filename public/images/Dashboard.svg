@@ -3,7 +3,7 @@
         <g clip-path="url(#clip1_60_3681)">
             <rect x="10" y="10" width="1185" height="810" fill="url(#pattern0_60_3681)"/>
         </g>
-        <path d="M4 16C4 9.37259 9.37259 4 16 4H1188C1194.63 4 1200 9.37258 1200 16V739C1200 745.627 1194.63 751 1188 751H16C9.37258 751 4 745.627 4 739V16Z" stroke="white" stroke-opacity="0.5" stroke-width="8"/>
+        <path d="M4 16C4 9.37259 9.37259 4 16 4H1188C1194.63 4 1200 9.37258 1200 16V739C1200 745.627 1194.63 751 1188 751H16C9.37258 751 4 745.627 4 739V16Z" stroke="white" stroke-opacity="0.6" stroke-width="8"/>
         <rect width="1204" height="120" transform="translate(0 635)" fill="url(#paint0_linear_60_3681)"/>
     </g>
     <defs>

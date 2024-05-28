@@ -17,7 +17,7 @@ const Footer = observer(() => {
           </div>
           <div className="flex justify-center items-center w-full text-center leading-[22px] sm:text-start">
             <p className="!leading-7 text-center text-base md:!leading-6 px-4 rounded-full border border-white/10 text-white w-fit">
-              Unlimited time on free plan
+              Unlimited time on free plan.
             </p>
           </div>
           <div className="w-full flex justify-center text-center leading-[22px] sm:text-start">
