@@ -10,7 +10,7 @@ const Components = observer(() => {
           id={`components`}
           className="observe-section overflow-hidden w-screen min-h-screen rounded-2xl flex flex-col items-center justify-center"
       >
-        <div className="p-8 md:p-16 flex flex-col items-center sm:items-start justify-center w-full leading-6 gap-10">
+        <div className="p-8 md:p-16 flex flex-col items-center   sm:items-start justify-center w-full leading-6 gap-10">
           <div className="flex justify-center items-center w-full text-center leading-[40px] sm:text-start">
             <p className="text-headingSm !w-full text-center text-black font-sans not-italic md:text-heading sm:text-3xl md:leading-[4rem] font-bold">
               Integrate with any <br/>
