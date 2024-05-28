@@ -1,7 +1,8 @@
-import React, { ReactNode, useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { observer } from "mobx-react";
 import Link from "next/link";
 import Button from "@/components/Button";
+import throttle from "lodash/throttle";
 
 export type NavItem = {
   title: string;
@@ -10,118 +11,81 @@ export type NavItem = {
 
 const Header = observer(() => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [lastScrollTop, setLastScrollTop] = useState(0);
-  const [textColor, setTextColor] = useState("text-black");
-
+  const [sectionMode, setSectionMode] = useState("light");
   const headerRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      let st = window.scrollY;
+    const handleScroll = throttle(() => {
+      const st = window.scrollY;
+      setIsScrolled(st > 10);
+    }, 100); // Adjust throttle time as needed
 
-      if (st > lastScrollTop && st > 10) {
-        setIsScrolled(true);
-      } else if (st < lastScrollTop && st < 10) {
-        setIsScrolled(false);
-      }
+    const sections = document.querySelectorAll(".observe-section");
 
-      setLastScrollTop(st); // Update the last scroll position
-    };
+    const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setSectionMode(
+                  entry.target.classList.contains("dark") ? "dark" : "light",
+              );
+            }
+          });
+        },
+        { threshold: 0.1 },
+    );
 
+    sections.forEach((section) => observer.observe(section));
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScrollTop]);
-
-  useEffect(() => {
-    const sections = document.querySelectorAll(".observe-section");
-    console.log(sections, "sections");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            console.log(
-              entry.target.classList,
-              "entry",
-              entry.target.classList.contains("dark"),
-            );
-            if (entry.target.classList.contains("dark")) {
-              setTextColor("text-white");
-            } else {
-              setTextColor("text-black");
-            }
-          }
-        });
-      },
-      { threshold: 0.1 },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => {
       sections.forEach((section) => observer.unobserve(section));
+      handleScroll.cancel();
     };
   }, []);
 
   const navItems: NavItem[] = [
-    {
-      title: "Product",
-      to: "",
-    },
-    {
-      title: "Templates",
-      to: "",
-    },
-    {
-      title: "Customers",
-      to: "",
-    },
-    {
-      title: "Resources",
-      to: "",
-    },
+    { title: "Product", to: "/#intro" },
+    { title: "Templates", to: "/#components" },
+    { title: "Customers", to: "/#customers" },
+    { title: "Resources", to: "/#cards" },
   ];
 
   return (
-    <>
-      <div
-        ref={headerRef}
-        className={`w-screen fixed top-0 left-0 font-inter transition-bg duration-300 ease-in z-[1000] bg-transparent ${
-          isScrolled
-            ? "bg-black bg-opacity-10 backdrop-blur-3xl"
-            : "bg-transparent"
-        } ${textColor}`}
-      >
-        <div className="items-center w-full justify-between py-[20px] px-[30px] flex gap-2">
-          <Link href="/" className="shrink w-full font-bold text-xl grow-0">
-            Dialix AI
-          </Link>
-          <div className="m-0 hidden sm:flex items-center rounded-[6px] lg:gap-16 sm:gap-8">
-            {navItems.map((nav, idx) => {
-              return (
-                <div key={idx} className="flex items-center">
-                  <Link
-                    href={nav.to}
-                    className="flex items-center gap-1 group hover:underline"
-                    title={nav.title}
-                    scroll={true}
-                  >
-                    <span>{nav.title}</span>
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
-          <div className="w-full flex gap-2 justify-end">
-            <Button variant={"white"}>Sign In</Button>
-            {/*<Button variant={"primary"}>Sign Up</Button>*/}
+      <>
+        <div
+            ref={headerRef}
+            className={`w-screen fixed top-0 left-0 font-inter transition-bg duration-300 ease-in z-[1000] ${
+                isScrolled
+                    ? "bg-white bg-opacity-80 backdrop-blur-3xl"
+                    : "bg-transparent"
+            }`}
+        >
+          <div className="items-center w-full justify-between py-[20px] px-[30px] flex gap-2">
+            <div className="shrink w-full font-bold text-xl grow-0">
+              Dialix AI
+            </div>
+            <div className="m-0 hidden sm:flex items-center rounded-[6px] lg:gap-16 sm:gap-8">
+              {navItems.map((nav, idx) => (
+                  <div key={idx} className="flex items-center">
+                    <Link
+                        href={nav.to}
+                        className="flex items-center gap-1 group hover:underline"
+                        title={nav.title}
+                        scroll={true}
+                    >
+                      <span>{nav.title}</span>
+                    </Link>
+                  </div>
+              ))}
+            </div>
+            <div className="w-full flex gap-2 justify-end">
+              <Button variant={"white"}>Sign In</Button>
+            </div>
           </div>
         </div>
-      </div>
-    </>
+      </>
   );
 });
 
